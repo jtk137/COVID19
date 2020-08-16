@@ -1,0 +1,636 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "pl-PL",
+    "dataSources": [
+      {
+        "name": "SqlAzure_projektbi2020.database.windows.net",
+        "connectionString": "Data Source=projektbi2020.database.windows.net;Initial Catalog=dev;User ID=prodprojektbi2020;Persist Security Info=true;Encrypt=true;TrustServerCertificate=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "provider": "System.Data.SqlClient",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlAzure"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "AgeIndex",
+        "columns": [
+          {
+            "name": "AgeIndexID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AgeIndexID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "IsoCode",
+            "dataType": "string",
+            "sourceColumn": "IsoCode",
+            "sourceProviderType": "char"
+          },
+          {
+            "name": "AgeFactorID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AgeFactorID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "AgeIndex",
+            "dataType": "double",
+            "sourceColumn": "AgeIndex",
+            "sourceProviderType": "decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "AgeFactorName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(AgeFactor[AgeFactorName])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "AgeIndex",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[AgeIndex].* FROM [dbo].[AgeIndex] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[AgeIndex].* FROM [dbo].[AgeIndex] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "AgeIndex"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CasesAndDeaths",
+        "columns": [
+          {
+            "name": "ReportDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ReportDate",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "IsoCode",
+            "dataType": "string",
+            "sourceColumn": "IsoCode",
+            "sourceProviderType": "char"
+          },
+          {
+            "name": "Cases",
+            "dataType": "int64",
+            "sourceColumn": "Cases",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Deaths",
+            "dataType": "int64",
+            "sourceColumn": "Deaths",
+            "sourceProviderType": "smallint"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CasesAndDeaths",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[CasesAndDeaths].* FROM [dbo].[CasesAndDeaths] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[CasesAndDeaths].* FROM [dbo].[CasesAndDeaths] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "CasesAndDeaths"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "HealthcareFactorIndex",
+        "columns": [
+          {
+            "name": "HealthcareFactorIndexID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "HealthcareFactorIndexID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "IsoCode",
+            "dataType": "string",
+            "sourceColumn": "IsoCode",
+            "sourceProviderType": "char"
+          },
+          {
+            "name": "HealthcareFactorID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "HealthcareFactorID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "HealthcareFactorIndex",
+            "dataType": "double",
+            "sourceColumn": "HealthcareFactorIndex",
+            "sourceProviderType": "decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "HealthcareFactorName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(HealthcareFactor[HealthcareFactorName])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "HealthcareFactorIndex",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[HealthcareFactorIndex].* FROM [dbo].[HealthcareFactorIndex] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[HealthcareFactorIndex].* FROM [dbo].[HealthcareFactorIndex] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "HealthcareFactorIndex"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Locations",
+        "columns": [
+          {
+            "name": "IsoCode",
+            "dataType": "string",
+            "sourceColumn": "IsoCode",
+            "sourceProviderType": "char"
+          },
+          {
+            "name": "ContinentID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ContinentID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "CountryName",
+            "dataType": "string",
+            "sourceColumn": "CountryName",
+            "sourceProviderType": "nvarchar"
+          },
+          {
+            "name": "Population",
+            "dataType": "int64",
+            "sourceColumn": "Population",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Area",
+            "dataType": "int64",
+            "sourceColumn": "Area",
+            "sourceProviderType": "int"
+          },
+          {
+            "type": "calculated",
+            "name": "ContinentName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED((Continents[ContinentName]))"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Locations",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Locations].* FROM [dbo].[Locations] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Locations].* FROM [dbo].[Locations] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Locations"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "SupplyQuantity",
+        "columns": [
+          {
+            "name": "SupplyQuantityID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SupplyQuantityID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "IsoCode",
+            "dataType": "string",
+            "sourceColumn": "IsoCode",
+            "sourceProviderType": "char"
+          },
+          {
+            "name": "TypeOfFoodID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TypeOfFoodID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "TypeOfNutritionalFactId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TypeOfNutritionalFactId",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "SupplyQuantity",
+            "dataType": "double",
+            "sourceColumn": "SupplyQuantity",
+            "sourceProviderType": "decimal"
+          },
+          {
+            "type": "calculated",
+            "name": "TypeOfFoodName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(TypeOfFood[TypeOfFoodName])"
+          },
+          {
+            "type": "calculated",
+            "name": "TypeOfNutritionalFactorName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(TypeOfNutritionalFact[TypeOfNutritionalName])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SupplyQuantity",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[SupplyQuantity].* FROM [dbo].[SupplyQuantity] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[SupplyQuantity].* FROM [dbo].[SupplyQuantity] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "SupplyQuantity"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "AgeFactor",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "AgeFactorID",
+            "dataType": "int64",
+            "sourceColumn": "AgeFactorID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "AgeFactorName",
+            "dataType": "string",
+            "sourceColumn": "AgeFactorName",
+            "sourceProviderType": "nvarchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "AgeFactor",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[AgeFactor].* FROM [dbo].[AgeFactor] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[AgeFactor].* FROM [dbo].[AgeFactor] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "AgeFactor"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Continents",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "ContinentID",
+            "dataType": "int64",
+            "sourceColumn": "ContinentID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "ContinentName",
+            "dataType": "string",
+            "sourceColumn": "ContinentName",
+            "sourceProviderType": "nvarchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Continents",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Continents].* FROM [dbo].[Continents] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Continents].* FROM [dbo].[Continents] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Continents"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "HealthcareFactor",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "HealthcareFactorID",
+            "dataType": "int64",
+            "sourceColumn": "HealthcareFactorID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "HealthcareFactorName",
+            "dataType": "string",
+            "sourceColumn": "HealthcareFactorName",
+            "sourceProviderType": "nvarchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "HealthcareFactor",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[HealthcareFactor].* FROM [dbo].[HealthcareFactor] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[HealthcareFactor].* FROM [dbo].[HealthcareFactor] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "HealthcareFactor"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "TypeOfFood",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "TypeOfFoodID",
+            "dataType": "int64",
+            "sourceColumn": "TypeOfFoodID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "TypeOfFoodName",
+            "dataType": "string",
+            "sourceColumn": "TypeOfFoodName",
+            "sourceProviderType": "nvarchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TypeOfFood",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[TypeOfFood].* FROM [dbo].[TypeOfFood] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[TypeOfFood].* FROM [dbo].[TypeOfFood] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TypeOfFood"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "TypeOfNutritionalFact",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "TypeOfNutritionalFactID",
+            "dataType": "int64",
+            "sourceColumn": "TypeOfNutritionalFactID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "TypeOfNutritionalName",
+            "dataType": "string",
+            "sourceColumn": "TypeOfNutritionalName",
+            "sourceProviderType": "nvarchar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TypeOfNutritionalFact",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[TypeOfNutritionalFact].* FROM [dbo].[TypeOfNutritionalFact] ",
+              "dataSource": "SqlAzure_projektbi2020.database.windows.net"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[TypeOfNutritionalFact].* FROM [dbo].[TypeOfNutritionalFact] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TypeOfNutritionalFact"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "1705d061-c124-4434-89ae-950c6d47247e",
+        "fromTable": "HealthcareFactorIndex",
+        "fromColumn": "IsoCode",
+        "toTable": "Locations",
+        "toColumn": "IsoCode"
+      },
+      {
+        "name": "e725f3d0-c834-4980-b3b6-78ce65dffdfd",
+        "fromTable": "AgeIndex",
+        "fromColumn": "IsoCode",
+        "toTable": "Locations",
+        "toColumn": "IsoCode"
+      },
+      {
+        "name": "abf1314c-82f9-4fae-893c-f6dbe43f6a87",
+        "fromTable": "SupplyQuantity",
+        "fromColumn": "IsoCode",
+        "toTable": "Locations",
+        "toColumn": "IsoCode"
+      },
+      {
+        "name": "120a039b-1ee1-4c7d-8fda-4a353395536f",
+        "fromTable": "CasesAndDeaths",
+        "fromColumn": "IsoCode",
+        "toTable": "Locations",
+        "toColumn": "IsoCode"
+      },
+      {
+        "name": "d50e795e-6d52-4d06-8009-4a2241568052",
+        "fromTable": "AgeIndex",
+        "fromColumn": "AgeFactorID",
+        "toTable": "AgeFactor",
+        "toColumn": "AgeFactorID"
+      },
+      {
+        "name": "d9ce711f-2406-44c5-ac1c-a83017c4b837",
+        "fromTable": "SupplyQuantity",
+        "fromColumn": "TypeOfNutritionalFactId",
+        "toTable": "TypeOfNutritionalFact",
+        "toColumn": "TypeOfNutritionalFactID"
+      },
+      {
+        "name": "7df241a9-fb2c-4d13-9939-3c93571eaaef",
+        "fromTable": "SupplyQuantity",
+        "fromColumn": "TypeOfFoodID",
+        "toTable": "TypeOfFood",
+        "toColumn": "TypeOfFoodID"
+      },
+      {
+        "name": "19260bc1-390e-407a-aa49-88f7578652d9",
+        "fromTable": "HealthcareFactorIndex",
+        "fromColumn": "HealthcareFactorID",
+        "toTable": "HealthcareFactor",
+        "toColumn": "HealthcareFactorID"
+      },
+      {
+        "name": "ee281108-fe75-4f29-87f8-792322c17fe4",
+        "fromTable": "Locations",
+        "fromColumn": "ContinentID",
+        "toTable": "Continents",
+        "toColumn": "ContinentID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

@@ -1,0 +1,9 @@
+HealthcareFactorId;HealthcareFactor
+1;CardiovascDeathRate
+2;DiabetesPrevalence
+3;FemaleSmokers
+4;MaleSmokers
+5;HandwashingFacilities
+6;Obesity
+7;Undernourished
+8;HospitalBedsPerThousand
