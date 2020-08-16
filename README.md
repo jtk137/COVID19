@@ -11,11 +11,9 @@ Covid-19 dataset is coming from https://github.com/owid/covid-19-data. I altered
 
 TOOLS
 
-GitHub: project hosting, comumunication and managment
-Kaggle: data source
-SQL Server Management Studio: relation database creation and management
-Power BI: visualtizations of data
-Visual Studio: Tabular Model
+-SQL Server Management Studio: relation database creation and management
+-Power BI: visualtizations of data
+-Visual Studio: Tabular Model
 
 
 OVERVIEW
